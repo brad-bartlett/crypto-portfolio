@@ -13,12 +13,21 @@ class PortfolioContainer extends Component {
             active_currency: null,
             amount: ''
         }
+        this.handleChange = this.handleChange.bind(this)
     }
+
+    handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        console.log(this.state.name)
+    }
+    // this modifies the name value in state any time the field value changes
 
     render() {
         return(
             <div>
-                <Search />
+                <Search handleChange={this.handleChange} />
                 <Calculate />
             </div>
         )
