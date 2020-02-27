@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Search from './Search'
 import Calculate from './Calculate'
+import axios from 'axios'
 
 class PortfolioContainer extends Component {
     constructor(props) {
@@ -17,8 +18,17 @@ class PortfolioContainer extends Component {
     }
 
     handleChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
+        // this.setState({
+        //     [e.target.name]: e.target.value
+        // })
+        axios.post('http://localhost:3000/search',{
+            search: e.target.value
+        })
+        .then((data) => {
+            debugger
+        })
+        .catch((data) => {
+            debugger
         })
         console.log(this.state.name)
     }
