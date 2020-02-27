@@ -15,6 +15,7 @@ class PortfolioContainer extends Component {
             amount: ''
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSelect = this.handleSelect.bind(this)
     }
 
     handleChange(e) {
@@ -34,10 +35,14 @@ class PortfolioContainer extends Component {
     }
     // this modifies the name value in state any time the field value changes
 
+    handleSelect(e) {
+        e.preventDefault() 
+        debugger
+    }
     render() {
         return(
             <div>
-                <Search searchResults={this.state.search_results} handleChange={this.handleChange} />
+                <Search handleSelect={this.handleSelect} searchResults={this.state.search_results} handleChange={this.handleChange} />
                 <Calculate />
             </div>
         )
