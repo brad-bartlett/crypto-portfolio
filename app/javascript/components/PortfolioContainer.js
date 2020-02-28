@@ -65,13 +65,17 @@ class PortfolioContainer extends Component {
           .catch((data) => {})
       }
 
-      
+      handleAmount(e) {
+          this.setState({
+              [e.target.name]: e.target.value
+          })
+      }
 
     render() {
+        const searchOrCalculate = this.state.active_currency ? <Calculate /> : <Search handleSelect={this.handleSelect} searchResults={this.state.search_results} handleChange={this.state.handleChange} />
         return(
             <div>
-                <Search handleSelect={this.handleSelect} searchResults={this.state.search_results} handleChange={this.handleChange} />
-                <Calculate />
+                {searchOrCalculate}
             </div>
         )
     }
