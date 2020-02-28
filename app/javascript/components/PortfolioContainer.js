@@ -71,7 +71,7 @@ class PortfolioContainer extends Component {
       }
 
     render() {
-        const searchOrCalculate = this.state.active_currency ? <Calculate handleChange={this.handleChange} handleSubmit={this.handleSubmit} active_currency={this.state.active_currency} amount={this.state.amount} /> : <Search handleSelect={this.handleSelect} searchResults={this.state.search_results} handleChange={this.state.handleChange} />
+        const searchOrCalculate = this.state.active_currency ? <Calculate handleChange={this.handleAmount} handleSubmit={this.handleSubmit} active_currency={this.state.active_currency} amount={this.state.amount} /> : <Search handleSelect={this.handleSelect} searchResults={this.state.search_results} handleChange={this.state.handleChange} />
         return(
             <div>
                 {searchOrCalculate}

@@ -9,7 +9,7 @@ class Calculate extends Component {
         return(
             <div>
         <h1>How much {this.props.active_currency} do you own?</h1>
-        <form onSUbmit="this.props.handleSubmit">
+        <form onSubmit="this.props.handleSubmit">
           <div className="form-group">
             <label>Enter amount owned:</label><br/>
             <input onChange={this.props.handleChange} autoComplete="off" type="text" name="name" placeholder="How much do you own?" value={this.props.amount} className="field"/>
