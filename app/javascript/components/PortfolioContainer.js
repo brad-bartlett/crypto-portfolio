@@ -29,7 +29,6 @@ class PortfolioContainer extends Component {
             })
         })
         .catch((data) => {
-            debugger
         })
         console.log(this.state.search_results)
     }
@@ -37,6 +36,7 @@ class PortfolioContainer extends Component {
 
     handleSelect(e){
         e.preventDefault()
+        
     
         const id = e.target.getAttribute('data-id')
         const activeCurrency = this.state.search_results.filter( item => item.id == parseInt(id))
@@ -46,7 +46,7 @@ class PortfolioContainer extends Component {
           search_results: []
         })
       }
-      
+
     render() {
         return(
             <div>
