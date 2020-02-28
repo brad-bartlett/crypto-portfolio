@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Search from './Search'
 import Calculate from './Calculate'
+import Portfolio from './Portfolio'
 import axios from 'axios'
 
 class PortfolioContainer extends Component {
@@ -16,6 +17,7 @@ class PortfolioContainer extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSelect = this.handleSelect.bind(this)
+        this.handleSubmit = this.handleChange.bind(this)
     }
 
     handleChange(e) {
@@ -36,8 +38,6 @@ class PortfolioContainer extends Component {
 
     handleSelect(e){
         e.preventDefault()
-        
-    
         const id = e.target.getAttribute('data-id')
         const activeCurrency = this.state.search_results.filter( item => item.id == parseInt(id))
     
@@ -46,6 +46,26 @@ class PortfolioContainer extends Component {
           search_results: []
         })
       }
+
+      handleSubmit(e) {
+          e.preventDefault()
+          let currecy = this.state.active_currency
+          let amount = this.state.amount
+
+          axios.post('http://localhost:3000/calculate', {
+              id: currency.id,
+              amount: amount
+          }) .then((data) => {
+              this.setState({
+                  amount: '',
+                  active_currency: null,
+                  portfolio: [...this.state.portfolio, data.data]
+              })
+          })
+          .catch((data) => {})
+      }
+
+      
 
     render() {
         return(
