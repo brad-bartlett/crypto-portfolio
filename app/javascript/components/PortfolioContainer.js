@@ -35,12 +35,18 @@ class PortfolioContainer extends Component {
     }
     // this modifies the name value in state any time the field value changes
 
-    handleSelect(e) {
-        e.preventDefault() 
-        // const id = e.target.getAttribute('data-id')
-        // const activeCurrency = this.state.search_results.filter(item => item.id == parseInt(id))
-        debugger
-    }
+    handleSelect(e){
+        e.preventDefault()
+    
+        const id = e.target.getAttribute('data-id')
+        const activeCurrency = this.state.search_results.filter( item => item.id == parseInt(id))
+    
+        this.setState({
+          active_currency: activeCurrency[0],
+          search_results: []
+        })
+      }
+      
     render() {
         return(
             <div>
