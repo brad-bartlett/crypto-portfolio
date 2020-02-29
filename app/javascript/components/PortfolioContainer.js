@@ -37,6 +37,7 @@ class PortfolioContainer extends Component {
 
   handleSelect(e){
     e.preventDefault()
+    
 
     const id = e.target.getAttribute('data-id')
     const activeCurrency = this.state.search_results.filter( item => item.id == parseInt(id))
