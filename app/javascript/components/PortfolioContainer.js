@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Search from './Search'
 import Calculate from './Calculate'
 import Portfolio from './Portfolio'
+
 import axios from 'axios'
 
 class PortfolioContainer extends Component {
@@ -37,7 +38,6 @@ class PortfolioContainer extends Component {
 
   handleSelect(e){
     e.preventDefault()
-    
 
     const id = e.target.getAttribute('data-id')
     const activeCurrency = this.state.search_results.filter( item => item.id == parseInt(id))
