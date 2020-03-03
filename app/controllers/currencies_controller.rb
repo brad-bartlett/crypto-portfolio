@@ -7,8 +7,7 @@ class CurrenciesController < ApplicationController
       render json: { currencies: @currencies }
     end
   
-    # Takes in the currency id and the amount owned
-    # Returns final calculations
+
     def calculate
       amount = params[:amount]
       render json: {
