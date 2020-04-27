@@ -6,9 +6,11 @@ class Currency < ApplicationRecord
 
     
     def current_price
-        url = 'https://api.coinmarketcap.com/v1/ticker/'
-        request = HTTParty.get(url + self.slug)
-        response = JSON.parse(request.body)[0]["price_usd"]
+        key = '9d3f657a-1454-4830-bf7a-aa87a09dc87a'
+        url = 'https://api.binance.com/api/v1/ticker/price?symbol=LTCBTC'
+        request = HTTParty.get(url + self.currency_symbol + 'USDT')
+        response = JSON.parse(request.body)[0]["current_price"]
     end
 
 end
+

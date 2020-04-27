@@ -32,7 +32,7 @@ class PortfolioContainer extends Component {
       })
     })
     .catch( (data) => {
-      //console.log(data)
+
     })
   }
 
@@ -66,7 +66,6 @@ class PortfolioContainer extends Component {
       })
     })
     .catch( (data) => {
-      //console.log(data)
     })
   }
 
@@ -78,7 +77,7 @@ class PortfolioContainer extends Component {
 
   render(){
     const searchOrCalculate = this.state.active_currency ?
-    <Calculate
+    <Calculate 
       handleChange={this.handleAmount}
       handleSubmit={this.handleSubmit}
       active_currency={this.state.active_currency}

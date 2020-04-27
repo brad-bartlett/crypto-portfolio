@@ -1,6 +1,5 @@
 class CurrenciesController < ApplicationController
-    def index
-    end
+  
   
     def search
       @currencies = Currency.where('LOWER(name) LIKE ?', "%#{params[:search].downcase}%")
